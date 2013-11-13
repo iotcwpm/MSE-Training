@@ -6,14 +6,20 @@
 # Soundtrack:
 # Notes:
 
+library(FLa4a)
+library(FLBRP)
+library(biodyn)
+library(aspic)
+
 NITER <- 100
 
 # LOAD OM
 
-# TEST OM: ple4 w/ SA estimation error only
-library(FLa4a)
-library(FLBRP)
-library(biodyn)
+load('data/alb.RData')
+om <- iter(om, sample(1:648, 100))
+om <- om[,,,4,,1]
+
+# TEST OM: ple4 w/ SA estimation error only {{{
 
 data(ple4)
 data(ple4.indices)
@@ -27,12 +33,11 @@ rfp <- refpts(brp(FLBRP(ple4)))
 msy <- rfp['msy', c('harvest', 'yield', 'ssb')]
 
 ## OM
-om <- propagate(ple4, NITER) + sa 
+om <- propagate(ple4, NITER) + sa # }}}
 
+# SR
 sr <- as.FLSR(om, model="bevholtSV")
-sr <- fmle(sr, fixed=list(s=.8, spr0=spr0(FLBRP(om, sr))))
-
-plot(sr)
+sr <- fmle(sr, fixed=list(s=0.8, spr0=spr0(om)))
 
 # SETUP simulation grid
 
@@ -49,19 +54,21 @@ grid <- list(
 
 # Run SA
 bd <- biodyn(model="pellat", catch=catch(om))
+catch(om)[,1] <- 0.1
 
 # BUG: quant and stock dims {{{
 quant(catch(bd)) <- 'quant'
-bd@stock <- catch(bd) # }}}
+bd@stock <- window(catch(bd), end=2011) # }}}
 
 # control
 setControl(bd) <- tsb(om)
-bd@control['r', c('min', 'val', 'max')] <- c(0.1, 0.5, 0.9)
+bd@control['r', c('min', 'val', 'max')] <- c(0.1, 0.8, 0.9)
 bd@control['p', c('min', 'val', 'max')] <- c(2,2,2)
-bd@control[c("p","b0"),"phase"] <- -1
-bd@control['k', c('min', 'val', 'max')] <- c(min(tc), max(tc)*1000, max(tc)*1e6)
+bd@control[c("p","b0", "r"),"phase"] <- -1
+bd@control['k', c('min', 'val', 'max')] <- c(min(catch(bd)), max(catch(bd))*1000, max(catch(bd))*1e6)
 																						 
-bd <- fit(bd, index=stock(om))
+bd <- fit(bd, index=stock(om)/1000)
+bd <- fit(aspic(om))
 
 # Apply HCR
 - Biomass dynamics SA

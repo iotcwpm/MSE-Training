@@ -15,7 +15,7 @@ NITER <- 100
 
 # LOAD OM
 
-load('data/alb.RData')
+load('data/om.RData')
 om <- iter(om, sample(1:648, 100))
 om <- om[,,,4,,1]
 

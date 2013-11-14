@@ -1,10 +1,20 @@
 % What exactly is MSE?
-% Working Party on Methods - I. MOSQUEIRA & T. KITAKADO
+% T. KITAKADO, I. MOSQUEIRA, R. SHARMA (WPM)
 % SC16 December 2013
 
 # What is MSE?
 
-- Definitions
+\note{
+NOTE
+}
+
+# Definitions
+
+- Risk
+- Uncertainty
+- Simulation
+
+# A brief history of MSE
 
 # SA-based SC advice
 
@@ -24,22 +34,42 @@
 
 - EXAMPLES
 
+# Testing decision rules under uncertainty
+
 # The 6 STEPS
 
-## 1 Define Management Objectives
+1. Specify & prioritize objectives
+2. Quantify them as performance measures
+3. Develop a set of OMs
+4. Identify candidate MPs (SA + HCR)
+5. Simulate the future
+	- Generate data
+	- Determine management action
+	- Apply to fleet and stock
+6. Summarize performance of MPs
+7. Select best MP
 
-## 2 ...
+# Advantages
+- Less haggling for short term benefits
+- Evaluation of risk
+- Limits catch variability
+- Consistent with PA
+- Interaction among scientists, managers & stakeholders
+- Default management if no agreement
+- Robust performance over tracking noise in data
 
-# Management Trade Offs
-
-# Example Trade Offs
-
-# So why MSE?
-
-## Advantages
+# Disadvantages
+- Lengthy complex development (but less and less so)
+- Overly rigid
+- Autopiloting?
+- Poor data, poor models
+- Choosing scenarios, test cases
 
 ## Limitations
 
-## Disadvantages
+# Trade Offs
 
 # MSE at IOTC
+
+- Current status
+- Future work

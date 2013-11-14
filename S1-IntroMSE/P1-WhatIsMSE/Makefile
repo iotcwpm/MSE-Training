@@ -2,7 +2,7 @@
 DOC=whatisMSE
 
 all: $(DOC).md
-	pandoc -t beamer -s --slide-level=1 $(DOC).md -o $(DOC).pdf
+	pandoc -t beamer -s --slide-level=1 $(DOC).md -o $(DOC).pdf -H tex/header.tex
 
 notes: $(DOC).md
 	pandoc -t beamer $(DOC).md -o $(DOC)Notes.pdf

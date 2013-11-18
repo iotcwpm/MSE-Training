@@ -16,18 +16,37 @@ The aim of this session is to introduce SC members to Management Strategy Evalua
 
 ## 1. Introduction to MSE (30')
 
-### PRESENTATION 1: In a nutshell, what is MSE? (10')
+### PRESENTATION 1: What is MSE? (10')
 
+- Definitions
+	- Risk
+	- Uncertainty
+	- Simulation
 - Very brief history
-- Basics of simulation and uncertainty
+- SA-based advice: problems
+- Decision rules
+- Testing decision rules: MSE
+- 6 steps
+- Advantages
+- Disadvantages
+- Limitations
+- Trade-offs
+- MSE @ IOTC
 
-### PRESENTATION 2: The components of the fishery system (15')
+### PRESENTATION 2: Simulating the fishery system (15')
 
-- The "real" population
-- The stock
-- The fleets
+- The "real" population: Operating Models
+	- The stock
+	- The fleets
 - The scientific advice process
+	- Data collection & preparation
+	- Stock Assessment
+	- Reference Points
+	- Projections & advice
 - The management system
+	- Implementation
+- Running it all
+	- Performance indicators
 
 ### Q&A (5')
 

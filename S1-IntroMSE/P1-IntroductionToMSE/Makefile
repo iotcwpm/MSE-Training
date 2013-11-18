@@ -1,5 +1,5 @@
 #
-DOC=whatisMSE
+DOC=IntroToMSE
 
 all: $(DOC).md
 	pandoc -t beamer -s --slide-level=1 $(DOC).md -o $(DOC).pdf -H tex/header.tex

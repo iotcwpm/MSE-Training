@@ -8,6 +8,10 @@
 NOTE
 }
 
+- Robust to uncertainty
+- Plausible uncertainty
+
+
 # Definitions
 
 - Risk
@@ -16,15 +20,28 @@ NOTE
 
 # A brief history of MSE
 
+- IWC NMP (1976): B, K, MSY
+- IWC MPA
+
+\note{
+- Wrong SA
+- Inter-annual variation
+}
+
 # SA-based SC advice
 
 ## Diagram
 ## Problems
 
-- SA uncertainty
-- Management objectives unclear
+- SA uncertain or wrong
+- Inter-annual changes in SA
 - Short time horizon
-- Stakeholder alienation
+- Management objectives unclear
+- Stakeholder distance
+
+# Feedback control
+
+- Lag in management in RFMO using SA
 
 # Decision rules
 
@@ -41,6 +58,7 @@ NOTE
 1. Specify & prioritize objectives
 2. Quantify them as performance measures
 3. Develop a set of OMs
+	- Condition on data
 4. Identify candidate MPs (SA + HCR)
 5. Simulate the future
 	- Generate data
@@ -73,3 +91,6 @@ NOTE
 
 - Current status
 - Future work
+
+Prediction is very difficult, specially if it is about the future
+-- Niels Bohr

@@ -15,14 +15,12 @@ NITER <- 100
 # LOAD OM
 
 load('data/om.RData')
-om <- iter(om, sample(1:648, 100))
 
 # ONE iter TEST
 om <- om[,,,4,,sample(648, 1)]
 
 # SR
 sr <- as.FLSR(om, model="bevholtSV")
-sr <- fmle(sr)
 sr <- fmle(sr, fixed=list(s=0.8, spr0=spr0(om)), method='Brent', lower=c(1e-8), upper=c(1e20))
 
 # SETUP simulation grid
@@ -40,6 +38,8 @@ grid <- list(
 
 # Perfect knowledge!
 cpue <- catch(om)/1000
+
+# HCR 1 {{{
 
 # Run SA
 bd <- biodyn(model="pellat", catch=catch(om))
@@ -63,7 +63,46 @@ bd <- fit(bd, index=cpue)
 # aspic
 bd <- fit(aspic(om))
 
-plot(stock(bd), type='b')
+# }}}
+
+# tail
+setMethod("tail", signature(x="FLQuant"),
+	function(x, n=1, dim=2, ...) {
+
+		# dim of length 1
+		if(length(dim) > 1)
+			stop("tail(FLQuant) can allow apply to a single dim(ension)")
+
+		# character dim
+		if(is(dim, 'character'))
+			dim <- which(dim == names(x))
+
+
+		# named list of dimension vectors
+		idx <- lapply(as.list(dim(x)), seq)
+		names(idx) <- c('i','j','k','l','m','n')
+
+		# tail dimension set by dim
+		idx[[dim]] <- tail(idx[[dim]], n=n)
+		
+		# apply '['
+		return(do.call('[', c(list(x=x), idx)))
+	}
+)
+
+# HCR 2 {{{
+
+### CPUE-based indicator HCR
+
+lm(data~year, as.data.frame(tail(cpue, n=5)))
+
+- Linear trend of last 5 years
+- C_new = C_cur * (1 + a * slope)
+- Tune a so that P()
+
+# 
+
+# }}}
 
 # Apply HCR
 - Biomass dynamics SA

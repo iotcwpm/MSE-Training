@@ -11,36 +11,28 @@ library(plyr)
 library(FLAssess)
 library(ggplotFL)
 
-NITER <- 200
-YEARS <- seq(2011, 2025)
-
 # LOAD OM
 load('data/om.RData')
 
-# SELECT random NITERs
-idx <- sample(dims(om)$iter, NITER)
-om <- om[,,,,,idx]
-sr <- sr[,,,,,idx]
-params(sr) <- params(sr)[,idx]
+# PARAMETERS
+NITER <- dims(om)$iter
+YEARS <- seq(2011, 2025)
+BETA <- 0.05
+SLOPEYRS <- 8
 
 # BUG: setSR messes up dimnames$iter
 om <- qapply(om, function(x) {dimnames(x)$iter <- seq(NITER); return(x)})
 sr <- qapply(sr, function(x) {dimnames(x)$iter <- seq(NITER); return(x)})
 dimnames(params(sr))$iter <- seq(NITER)
 
-# SR residuals
-sresid <- residuals(sr)[, ac(sample(1970:2010, length(YEARS), replace=TRUE))]
+# EXTRACT SR residuals
+sresid <- residuals(sr)[, ac(sample(1970:2010, length(YEARS), replace=TRUE))] + 
+	# + B0 variability
+	log(c(params(sr)['v'])/mean(c(params(sr)['v'])))
 dimnames(sresid) <- list(year=YEARS)
 
-# EXTEND om
+# EXTEND om for future years
 om <- stf(om, length(YEARS))
-
-# SETUP simulation grid
-grid <- list(
-	Btrigger=c(0.90, 0.85, 0.95),
-	timeRec=c(5, 8, 10),
-	errorC=c(0.10, 0.20, 0.30),
-	beta=c(0.01, 0.02, 0.05))
 
 # RUN, RUN! {{{
 for (i in YEARS) {
@@ -49,17 +41,20 @@ for (i in YEARS) {
 	tc <- catch(om)[,ac(i-1)]
 
 	# Get CPUE, perfect knowledge!
-	cpue <- window(stock(om), end=i-1)/1000
+	cpue <- window(ssb(om), end=i-1)/1000
 
-	# HCR 2: cpue-based indicator
-	xcpue <- tail(cpue, 5)
+	# HCR 1: cpue-based indicator
+	xcpue <- tail(cpue, SLOPEYRS)
 	xcpue <- (xcpue %/% xcpue[,1])-1
 	inp <- as.data.frame(xcpue[,,,,,])
 	slope <- ddply(inp, .(iter), summarise, slope=coef(lm(data~year))[2])
-	beta <- 0.01
-	nc <- tc * (1 + beta * slope$slope)
-	nc <- 15000
-	cat("nc[", i, "] = ", mean(nc), "\n")
+	
+	# SET catch
+	idx <- slope$slope > 0
+	nc <- tc * (1 + BETA * slope$slope)
+	# nc[,,,,,idx] <- tc[,,,,,idx] * 0.75
+	
+	cat("[", i, "] NC = ", mean(nc), "\t", "SSB = ", mean(ssb(om)[, ac(i)]), "\n", sep="")
 
 	# Project
 	slopes <- array(NA, dim=c(1,3,NITER), dimnames=list(1, c("min", "val", "max"),
@@ -71,27 +66,12 @@ for (i in YEARS) {
 	# BUG
 	dimnames(ctrl@trgtArray)$iter <- dimnames(sresid)$iter
 	
-	# MEAN rec: om <- fwd(om, ctrl=ctrl, sr=list(model='mean', params=FLPar(a=18000)))
+	# SR variability
 	om <- fwd(om, ctrl=ctrl, sr=ab(sr), sr.residuals=exp(sresid), sr.residuals.mult=TRUE)
+	# No SR var
+	# om <- fwd(om, ctrl=ctrl, sr=ab(sr))
 
 } # }}}
 
 # OUTPUT
-
-tsi <- as.data.frame(FLQuants(
-	ssb=ssb(om),
-	rec=rec(om),
-	catch=catch(om)))
-
-# tsq <- 
-
-# per <- 
-
-ggplot(data=ts, aes(year, data)) + geom_line() + facet_wrap(~qname, scales="free", nrow=3)
-
-- P(SSB_y >= SSB@MSY)
-- P(SSB_end >= SSB@MSY)
-- P(F_y >= F@MSY)
-- P(F_end >= F@MSY)
-- Median C, CV C
 

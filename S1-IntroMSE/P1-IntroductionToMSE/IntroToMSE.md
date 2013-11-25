@@ -30,7 +30,10 @@ NOTE
 
 # SA-based SC advice
 
-## Diagram
+\centering\includegraphics[width=0.9\textwidth]{graphics/sa.png}
+
+# SA-based SC advice
+
 ## Problems
 
 - SA uncertain or wrong

@@ -17,8 +17,8 @@ load('data/om.RData')
 # PARAMETERS
 NITER <- dims(om)$iter
 YEARS <- seq(2011, 2025)
-BETA <- 0.05
-SLOPEYRS <- 8
+BETA <- 0.1
+SLOPEYRS <- 5
 
 # BUG: setSR messes up dimnames$iter
 om <- qapply(om, function(x) {dimnames(x)$iter <- seq(NITER); return(x)})

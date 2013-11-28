@@ -6,13 +6,16 @@
 # Soundtrack:
 # Notes:
 
-library(FLash)
+library(FLBRP)
 library(plyr)
 library(FLAssess)
-library(ggplotFL)
+
+# TODO GET rp objects from FAOSIM
 
 # LOAD OM
 load('data/rc.RData')
+load('data/ow.RData')
+load('data/ed.RData')
 
 # PARAMETERS
 NITER <- dims(om)$iter
@@ -21,7 +24,7 @@ BETA <- 0.2
 SLOPEYRS <- 5
 
 # EXTRACT SR residuals
-sresid <- residuals(sr[, sample(1:60, length(YEARS))])
+sresid <- residuals(sr)[, ac(sample(1:60, length(YEARS)))]
 dimnames(sresid) <- list(year=YEARS)
 
 # EXTEND om for future years
@@ -70,7 +73,6 @@ for (i in YEARS) {
 } # }}}
 
 # OUTPUT
-
 plot(om)
 
 # TS by year & iter

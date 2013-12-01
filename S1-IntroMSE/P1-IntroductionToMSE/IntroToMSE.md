@@ -73,13 +73,21 @@
 
 - Lag in management in RFMO using SA
 
+# Objectives
+
+- Unclear
+
 # Decision rules
 
 - Agree rules of game before start playing
 
 - Data + Decision rule + Management
 
-- EXAMPLES
+# Example HCR
+
+- ALB CPUE
+
+- ALB SP
 
 # Testing decision rules under uncertainty
 
@@ -113,7 +121,12 @@ Prediction is very difficult, specially if it is about the future
 
 - Not all possible scenarios covered
 
+# Risks
+
 # Trade Offs
+
+- Compatible objectives
+- CCSBT
 
 # QUESTIONS?
 

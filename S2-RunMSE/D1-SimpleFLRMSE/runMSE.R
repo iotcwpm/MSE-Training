@@ -79,6 +79,9 @@ library(RSQLite)
 con <- dbConnect(SQLite(), "res.SQLite")
 dbWriteTable(con, "res", res)
 
+
+# -----------
+
 # PLOT grid
 pgrid <- list(
 	OM=as.character(c('rc', 'ow', 'ed')),
@@ -119,13 +122,17 @@ for(i in seq(nrow(pgridf))) {
 	pres[[i]]$plotONE <- 
 		ggplot(sta, aes(year, median)) + geom_line() +
 		facet_grid(qname~., scales='free') + xlab("") + ylab("") + expand_limits(y=0) +
+		# 85 and 75% quantiles
 		geom_ribbon(aes(year, ymin=q2l, ymax=q2u), fill="red", alpha = .25) +
 		geom_ribbon(aes(x=year, ymin=q1l, ymax =q1u),  fill="red", alpha = .10) +
 		# MSY
 		geom_hline(data=rpa, aes(yintercept=msy), colour="blue", linetype=2) +
+		# Plots of individual iterations
 		geom_line(aes(year, it1), colour='orange1', linetype=5, size=0.4) +
 		geom_line(aes(year, it2), colour='orange2', linetype=5, size=0.4) +
-		geom_line(aes(year, it3), colour='orange', linetype=5, size=0.4)
+		geom_line(aes(year, it3), colour='orange', linetype=5, size=0.4) + 	
+		# Start year of simulation
+		geom_vline(xintercept=60, colour='red')
 }
 
 # plotTWO
@@ -171,14 +178,31 @@ for(i in seq(nrow(pgridf))) {
 		q2u = quantile(data, 0.75, na.rm=TRUE),
 		q2l = quantile(data, 0.25, na.rm=TRUE)
 	)
+	cva <-(mean(sta$median)-1)*100 
 	
 	pres[[i]]$plotFOUR <- ggplot(sta, aes(year, median)) + geom_line() +
 		xlab("") + ylab("") + 
 		geom_ribbon(aes(year, ymin=q2l, ymax=q2u), fill="red", alpha = .25) +
 		geom_ribbon(aes(x=year, ymin=q1l, ymax =q1u),  fill="red", alpha = .10) +
-		geom_hline(aes(yintercept=1), colour="blue", linetype=2)
+		geom_hline(aes(yintercept=1), colour="blue", linetype=2) +
+		annotate("text", x = 78, y = 1, label = paste0(format(cva, digits=2), "%"),
+			size=15, alpha=0.60)
 }
 
 save(pgridf, pres, file='pres.RData')
 
+# PLOTS list
+plots <- lapply(pres, function(x) x[6:8])
+save(plots, pgridf, file='shiny/plots.RData')
+
 # PLOTS across runs
+pgrid <- list(
+	OM=as.character('rc'),
+	SResid=c(10),
+	beta=c(0.1, 0.2, 0.4),
+	cpueNoise=c(0, 10, 20))
+
+
+for(i in seq(nrow(pgridf))) {
+	sta <- subset(pres[[i]]$sub, qname=='SSB')
+}

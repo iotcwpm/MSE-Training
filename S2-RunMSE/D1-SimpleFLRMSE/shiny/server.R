@@ -1,5 +1,8 @@
 
 library(shiny)
+library(ggplot2)
+
+load("plots.RData")
 
 shinyServer(function(input, output) {
   
@@ -15,25 +18,25 @@ idx <- reactive({
 	# Render plots here  
     #  plot ONE 
     output$plotONE <- renderPlot({
-      print(pres[[idx()$number]]$plotONE)
+      print(plots[[idx()$number]]$plotONE)
     }) # END # plot ONE
 
 
     #  plot TWO 
     output$plotTWO <- renderPlot({
-      print(pres[[idx()$number]]$plotTWO)
+      print(plots[[idx()$number]]$plotTWO)
     }) # END # plot TWO
 
 
     #  plot THREE 
     output$plotTHREE <- renderPlot({
-      print(pres[[idx()$number]]$plotTHREE)
+      print(plots[[idx()$number]]$plotTHREE)
     }) # END # plot THREE
 
 
     #  plot FOUR 
     output$plotFOUR <- renderPlot({
-      print(pres[[idx()$number]]$plotFOUR)
+      print(plots[[idx()$number]]$plotFOUR)
     }) # END # plot FOUR
 
 }) # END shinyServer()

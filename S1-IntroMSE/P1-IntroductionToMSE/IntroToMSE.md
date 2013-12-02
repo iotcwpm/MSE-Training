@@ -23,8 +23,6 @@
 - Comparison with reference points
 - Yearly assessment + advice 
 
-# SA outputs
-
 # SA-based SC advice
 
 ## Problems
@@ -53,6 +51,8 @@
 
 # MSE output
 
+- Performance of Management System under uncertainty
+
 # The 6 STEPS
 
 1. Specify & prioritize objectives
@@ -67,15 +67,9 @@
 6. Summarize performance of MPs
 7. Select best MP
 
-# OM
-
 # Feedback control
 
 - Lag in management in RFMO using SA
-
-# Objectives
-
-- Unclear
 
 # Decision rules
 
@@ -112,21 +106,64 @@
 - Autopiloting?
 - Poor data, poor models
 - Choosing scenarios, test cases
+- Not all possible scenarios covered
 
 Prediction is very difficult, specially if it is about the future
 
 -- Niels Bohr
 
-# Limitations
+# Risk
 
-- Not all possible scenarios covered
+Probability of some undesired event happening
 
-# Risks
+- Farmer: sell your crop or sell later at (possibly) higher price?
+- Investment: Keep shares while they rise or sell before they fall?
+
+# Dilemma of low biomass
+
+- Low SSB for last 2 years:
+
+	- Weak year class (no action), or
+	- Start of overfishing
+
+- Risk for manager:
+
+	- Restrict fishery without need, vs
+	- Not protecting overfished stocks
+
+# Dilemma of low biomass
+
+\includegraphics[width=0.9\textwidth]{graphics/risk1.png}
+
+# Dilemma of low biomass
+
+\includegraphics[width=0.9\textwidth]{graphics/risk2.png}
+
+# Dilemma of low biomass
+
+\includegraphics[width=0.9\textwidth]{graphics/risk3.png}
+
+# Dilemma of low biomass
+
+\includegraphics[width=0.9\textwidth]{graphics/risk4.png}
 
 # Trade Offs
 
 - Compatible objectives
 - CCSBT
+
+
+# Objectives
+
+## Conservation
+
+## Fisheries
+
+##  Risks
+- x % (e.g. 10%) risk of unnecessarily restricting fisheries
+	- P(F > F@MSY) < 10%
+- y% (e.g. 5%) risk of not protecting overfished stocks
+	- P(SSB < SSB@LIM) < 5%
 
 # QUESTIONS?
 

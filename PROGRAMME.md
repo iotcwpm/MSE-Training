@@ -8,7 +8,7 @@ The aim of this session is to introduce SC members to Management Strategy Evalua
 
 # ORGANIZATION
 
-- To be run over three 30' sessions
+- To be run over two 30' sessions
 - 2-3 demonstrators
 - A set of prepared alternative simulations is to be run in advance, so results are available on the fly. But code should be kept simple enough that alternative formulations can be run in a short while.
 
@@ -16,7 +16,7 @@ The aim of this session is to introduce SC members to Management Strategy Evalua
 
 ## 1. Introduction to MSE (30')
 
-### PRESENTATION 1: What is MSE? (10')
+### PRESENTATION 1: What is MSE? (20')
 
 - Definitions
 	- Risk
@@ -33,22 +33,7 @@ The aim of this session is to introduce SC members to Management Strategy Evalua
 - Trade-offs
 - MSE @ IOTC
 
-### PRESENTATION 2: Simulating the fishery system (15')
-
-- The "real" population: Operating Models
-	- The stock
-	- The fleets
-- The scientific advice process
-	- Data collection & preparation
-	- Stock Assessment
-	- Reference Points
-	- Projections & advice
-- The management system
-	- Implementation
-- Running it all
-	- Performance indicators
-
-### Q&A (5')
+### Q&A (10')
 
 ## 2. Running and inspecting an MSE (30')
 
@@ -61,13 +46,3 @@ The aim of this session is to introduce SC members to Management Strategy Evalua
 
 ### Q&A (5')
 
-## 3. Simulating the fishery system (30')
-
-### DEMO 2: How can it be done? Disecting the MSE (25')
-
-- Data collection
-- Stock status
-- Harvest control rule
-- Implementation
-
-### Q&A (5')

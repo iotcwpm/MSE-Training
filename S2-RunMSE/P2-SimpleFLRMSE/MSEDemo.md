@@ -7,10 +7,44 @@
 1. Get catch y-1
 2. CPUE = SSB + E()
 3. lm (cpue ~ year) for last 5 years
-4. C_y = C_y+1 * (1 + beta * slope)
+4. C_y = C_y+1 * (1 + BETA * slope)
 5. Project stock w/ C_y + SR
 
 Done for each iteration, HCR and OM option
+
+# SCENARIOS
+
+- OMs: Simulated populations w/ tuna LH
+	- ow: One-way trip, F up to 0.80*Fcrash
+	- ed: Effort dynamics, F to drive stock to MSY
+	- rc: Roller coaster, F up and then down
+
+\centering\includegraphics[width=0.40\textwidth]{graphics/ow.png}
+\centering\includegraphics[width=0.30\textwidth]{graphics/ed.png}
+\centering\includegraphics[width=0.30\textwidth]{graphics/rc.png}
+
+# SCENARIOS
+
+- OMs: Simulated populations w/ tuna LH
+	- ow: One-way trip, F up to 0.80*Fcrash
+	- ed: Effort dynamics, F to drive stock to MSY
+	- rc: Roller coaster, F up and then down
+
+\centering\includegraphics[width=0.30\textwidth]{graphics/ow.png}
+\centering\includegraphics[width=0.40\textwidth]{graphics/ed.png}
+\centering\includegraphics[width=0.30\textwidth]{graphics/rc.png}
+
+# SCENARIOS
+
+- OMs: Simulated populations w/ tuna LH
+	- ow: One-way trip, F up to 0.80*Fcrash
+	- ed: Effort dynamics, F to drive stock to MSY
+	- rc: Roller coaster, F up and then down
+
+\centering\includegraphics[width=0.30\textwidth]{graphics/ow.png}
+\centering\includegraphics[width=0.30\textwidth]{graphics/ed.png}
+\centering\includegraphics[width=0.40\textwidth]{graphics/rc.png}
+
 
 # SCENARIOS
 
@@ -30,4 +64,4 @@ Done for each iteration, HCR and OM option
 
 # 
 
- \centering \Large http://spark.rstudio.com/imosqueira/IOTCMSE/
+\centering \Large http://spark.rstudio.com/imosqueira/IOTCMSE/

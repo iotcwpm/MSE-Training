@@ -70,7 +70,7 @@ a.k.a. Management Procedure Approach
 \centering\includegraphics[width=0.6\textwidth]{graphics/mseout.png}
 
 
-# The 6 STEPS
+# The 7 STEPS
 
 1. Specify & prioritize objectives
 2. Quantify them as performance measures
@@ -107,6 +107,13 @@ a.k.a. Management Procedure Approach
 - Choosing scenarios, test cases
 - Not all possible scenarios covered
 
+# MSE Limitations
+
+- Need for quality data
+- Does not remove hard decisions about quota allocations or overcapacity
+- Exceptional circumstances
+- Managers unwilling to give up negotiation option?
+
 # Risk
 
 - Probability of some undesirable event happening
@@ -141,9 +148,22 @@ a.k.a. Management Procedure Approach
 
 \includegraphics[width=0.9\textwidth]{graphics/risk4.png}
 
-# Trade Offs
+# Trade-offs
 
 - High catch, low variability, high SSB: compatible objectives?
+
+## Common trade-offs
+
+- Higher Catch = Lower CPUE
+- Higher Catch = Higher conservation risk
+
+- For a given level of conservation risk:
+	- Higher Catch = Higher Variability in Catch
+	- Higher Catch = More Expensive Research
+
+# Trade-offs
+
+\centering\includegraphics[width=0.75\textwidth]{graphics/tradeoff.png}
 
 # Objectives
 
@@ -176,7 +196,7 @@ a.k.a. Management Procedure Approach
 
 - Dialogue with managers: objectives, risks
 
-- MSE not magic wand, but powerful tool
+- MSE not magic wand, but powerful tool for helping decision making
 
 *Prediction is very difficult, specially if it is about the future*
 

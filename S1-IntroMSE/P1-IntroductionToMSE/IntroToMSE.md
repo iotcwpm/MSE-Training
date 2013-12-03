@@ -4,14 +4,9 @@
 
 # What is MSE?
 
-\note{
-- IOTC starting into MSE
-- A brief definition
-
-- Comparison with TA
-}
-
 **Testing** the **performance** of a **Management Procedure** to deliver a set of **objectives** under **uncertainty** and for a range of scenarios.
+
+a.k.a. Management Procedure Approach
 
 # SA-based SC advice
 
@@ -23,15 +18,29 @@
 - Comparison with reference points
 - Yearly assessment + advice 
 
-# SA-based SC advice
+\centering\includegraphics[width=0.50\textwidth]{graphics/kobe.png}
 
-## Problems
+# Problems with SA
+
+- SA uncertain or wrong
+
+\centering\includegraphics[width=0.50\textwidth]{graphics/kobe2.png}
+
+# Problems with SA
+
+- SA uncertain or wrong
+- Inter-annual changes in SA
+
+\centering\includegraphics[width=0.50\textwidth]{graphics/retro.png}
+
+# Problems with SA
 
 - SA uncertain or wrong
 - Inter-annual changes in SA
 - Short time horizon
 - Management objectives unclear
 - Stakeholder distance
+
 
 # MSE in a nutshell
 
@@ -51,7 +60,15 @@
 
 # MSE output
 
-- Performance of Management System under uncertainty
+- Relative comparison of performance of different Management Systems under uncertainty
+	- Is Plan A riskier than Plan B?
+
+- Contribution of each source of data to ability to manage
+	- What does the MP need as input?
+	- Value of fisheries-independent data, e.g. tagging
+
+\centering\includegraphics[width=0.6\textwidth]{graphics/mseout.png}
+
 
 # The 6 STEPS
 
@@ -67,25 +84,7 @@
 6. Summarize performance of MPs
 7. Select best MP
 
-# Feedback control
-
-- Lag in management in RFMO using SA
-
-# Decision rules
-
-- Agree rules of game before start playing
-
-- Data + Decision rule + Management
-
-# Example HCR
-
-- ALB CPUE
-
-- ALB SP
-
-# Testing decision rules under uncertainty
-
-# Advantages
+# MSE Advantages
 
 - Evaluation of risk
 - Robust performance over tracking noise in data
@@ -99,7 +98,7 @@
 * Butterworth, D. S. 2007. Why a management procedure approach? Some positives and negatives. – ICES Journal of Marine Science, 64: 613 – 617.
 }
 
-# Disadvantages
+# MSE Disadvantages
 
 - Lengthy complex development (but less and less so)
 - Overly rigid
@@ -108,14 +107,9 @@
 - Choosing scenarios, test cases
 - Not all possible scenarios covered
 
-Prediction is very difficult, specially if it is about the future
-
--- Niels Bohr
-
 # Risk
 
-Probability of some undesired event happening
-
+- Probability of some undesirable event happening
 - Farmer: sell your crop or sell later at (possibly) higher price?
 - Investment: Keep shares while they rise or sell before they fall?
 
@@ -149,15 +143,22 @@ Probability of some undesired event happening
 
 # Trade Offs
 
-- Compatible objectives
-- CCSBT
-
+- High catch, low variability, high SSB: compatible objectives?
 
 # Objectives
 
 ## Conservation
 
+- Safe SSB levels
+- Ecosystem considerations
+- Avoid recruitment and growth overfishing
+
 ## Fisheries
+
+- Economically and socially viable catch levels
+- Stability in expected catches
+
+# Objectives
 
 ##  Risks
 - x % (e.g. 10%) risk of unnecessarily restricting fisheries
@@ -165,39 +166,22 @@ Probability of some undesired event happening
 - y% (e.g. 5%) risk of not protecting overfished stocks
 	- P(SSB < SSB@LIM) < 5%
 
+# Wrap Up
+
+- Objectives: to best manage we need direction
+
+- Risk: need to think about them
+
+- Management System: Data + Decision rule + Management tools
+
+- Dialogue with managers: objectives, risks
+
+- MSE not magic wand, but powerful tool
+
+*Prediction is very difficult, specially if it is about the future*
+
+-- Niels Bohr
+
 # QUESTIONS?
 
-# A brief history of MSE
-
-- IWC NMP (1974): B, K, MSY, C limits
-- Arguments on parameters and uncertainty
-- IWC RMP (1992)
-
-# MSE at IOTC
-
-- Current setup
-
-# MSE at IOTC
-
-- Current status
-
-# MSE at IOTC
-
-- Future work
-
-#
-
-\centering\includegraphics[width=0.75\textwidth]{graphics/keep-calm-and-do-mse.png}
-
-# Practical session
-
-# NOTES
-
-- Robust to uncertainty
-- Plausible uncertainty
-
-## Definitions
-
-- Risk
-- Uncertainty
-- Simulation
+\centering\includegraphics[width=0.65\textwidth]{graphics/keep-calm-and-do-mse.png}
